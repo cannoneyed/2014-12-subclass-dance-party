@@ -61,13 +61,13 @@ $(document).ready(function(){
       500
     );
     $('body').append(dancer.$node);
-    // dancer.$node.find('.head').css('background-image', '\name);
+    dancer.$node.find('.head').css('background-image', 'url("' + heads[name] + '")');
   })
 
 });
 
 var heads = {
-  yellow: "img/heads/smiley.png",
+  poopty: "img/heads/smiley.png",
   red: "img/heads/smiley_red.png",
   blue: "img/heads/smiley_blue.png"
 };

@@ -72,9 +72,11 @@ body, a:link, a:visited, a:active{
   height: 500px;
   width: 500px;
   background-color: black;
+  background-color: rgba(0,0,0,.5);
   position: relative;
   margin: auto auto;
   margin-top: 180px;
+  z-index: 5;
 }
 
 .dancerProfile{
