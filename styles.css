@@ -8,9 +8,7 @@ body{
   font-size: 18px;
   overflow: hidden;
 }
-body, a:link, a:visited, a:active{
-  color: blue;
-}
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
@@ -18,7 +16,14 @@ body, a:link, a:visited, a:active{
 .topbar{
   height:32px;
   background-color: #555;
+  color: blue;
+  font-family: helvetica;
 }
+
+.topbar a{
+  color:red;
+}
+
 .title{
   background-color: #777;
 }
@@ -77,6 +82,14 @@ body, a:link, a:visited, a:active{
   margin: auto auto;
   margin-top: 180px;
   z-index: 5;
+  overflow: auto;
+  transition: 500ms;
+}
+
+.dancerMenu.hidden{
+  opacity:0;
+  height:0;
+
 }
 
 .dancerProfile{
@@ -87,6 +100,7 @@ body, a:link, a:visited, a:active{
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  display: inline-block;
 }
 
 .dancerName{
@@ -95,3 +109,13 @@ body, a:link, a:visited, a:active{
   text-align: center;
 }
 
+.closeMenu{
+  position: fixed;
+  text-decoration: none;
+  color: white;
+}
+
+.dancerContainer{
+  position: absolute;
+  transition: 1500ms;
+}

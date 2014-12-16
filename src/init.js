@@ -1,5 +1,6 @@
 $(document).ready(function(){
   window.dancers = [];
+  var midPoint = $('body').height() * .4
 
   for(var key in heads){
     var $link = $("<a href='#'></a>");
@@ -56,20 +57,101 @@ $(document).ready(function(){
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
+      midPoint * Math.random() + midPoint,
       $("body").width() * Math.random(),
       500
     );
     $('body').append(dancer.$node);
     dancer.$node.find('.head').css('background-image', 'url("' + heads[name] + '")');
+  });
+
+  $('.chooseYourDancer').on('click', function(){
+    $('.dancerMenu').toggleClass('hidden');
   })
+
+  $('.closeMenu').on('click', function(){
+    $('.dancerMenu').addClass('hidden');
+  })
+
+  $('.randomizePositions').on('click', function(){
+    for(var i = 0; i < window.dancers.length; i++){
+      window.dancers[i].setPosition(Math.random() * midPoint + midPoint, $("body").width() * Math.random())
+    }
+  });
+
+  $('.lineUpOnYAxis').on('click', function(){
+    for(var i = 0; i < window.dancers.length; i++){
+      window.dancers[i].setPosition($("body").height()/2, $("body").width()/window.dancers.length * i);
+
+    }
+  });
+
+  $('.danceOff').on('click', function(){
+    var firstHalf = window.dancers.slice(0, window.dancers.length/2);
+    var secondHalf = window.dancers.slice(window.dancers.length/2);
+    var windowWidth = $('body').width();
+    var windowHeight = $('body').height();
+    var startX = 0;
+    var startY = windowHeight * .7;
+    var endX = windowWidth * .3;
+    var endY = windowHeight * .3;
+    var lengthX = endX - startX;
+    var lengthY = startY - endY;
+    for(var i = 0; i < firstHalf.length; i++){
+      firstHalf[i].setPosition(
+        startY - lengthY/firstHalf.length * i,
+        startX + lengthX/firstHalf.length * i
+        )
+
+    }
+    startX = windowWidth * .9;
+    startY = windowHeight * .7;
+    endX = windowWidth * .6;
+    endY = windowHeight * .3;
+    lengthX = endX - startX;
+    lengthY = startY - endY;
+    for(var i = secondHalf; i < secondHalf.length; i++){
+      secondHalf[i].setPosition(
+        startY - lengthY/firstHalf.length * i,
+        startX + lengthX/firstHalf.length * i
+        )
+
+    }
+  });
 
 });
 
 var heads = {
   poopty: "img/heads/smiley.png",
   red: "img/heads/smiley_red.png",
-  blue: "img/heads/smiley_blue.png"
+  blue: "img/heads/smiley_blue.png",
+    poo: "img/heads/smiley.png",
+  re: "img/heads/smiley_red.png",
+  bue: "img/heads/smiley_blue.png",
+    oopty: "img/heads/smiley.png",
+  rd: "img/heads/smiley_red.png",
+  ble: "img/heads/smiley_blue.png",
+    ppty: "img/heads/smiley.png",
+  reasd: "img/heads/smiley_red.png",
+  bluesadas: "img/heads/smiley_blue.png",
+    poopasdty: "img/heads/smiley.png",
+  reasdasd: "img/heads/smiley_red.png",
+  bluasde: "img/heads/smiley_blue.png",
+    poopasdasty: "img/heads/smiley.png",
+  redhndfghdrg: "img/heads/smiley_red.png",
+  bltrnyrdtue: "img/heads/smiley_blue.png",
+    pooynrtstypty: "img/heads/smiley.png",
+  renrtyrdd: "img/heads/smiley_red.png",
+  blntydrtyue: "img/heads/smiley_blue.png",
+    pntrydrtyoopty: "img/heads/smiley.png",
+  retrnytryd: "img/heads/smiley_red.png",
+  bltnyrtdyue: "img/heads/smiley_blue.png",
+    pontrdyopty: "img/heads/smiley.png",
+  reynrntyrdd: "img/heads/smiley_red.png",
+  blrtdnyrue: "img/heads/smiley_blue.png",
+    pootndypty: "img/heads/smiley.png",
+  rtryned: "img/heads/smiley_red.png",
+  btnydrlue: "img/heads/smiley_blue.png",
 };
 
 
