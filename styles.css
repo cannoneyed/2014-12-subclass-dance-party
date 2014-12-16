@@ -7,7 +7,7 @@ body{
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: blue;
 }
 .title, .addDancerButton{
   padding:5px 12px;
@@ -24,4 +24,22 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.special{
+  background-image: url('img/heads/smiley.png');
+  width: 90px;
+  height: 120px;
+  background-repeat: no-repeat;
+  position: absolute;
+  background-size: 100% 100%;
+  transition: 1000ms;
+}
+
+.left{
+  transform: rotate(-45deg);
+}
+
+.right{
+  transform: rotate(45deg);
 }
