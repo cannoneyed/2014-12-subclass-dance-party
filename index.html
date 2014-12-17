@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Dance Party</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="src/dancer.js"></script>
+    <script src="src/blinkyDancer.js"></script>
+    <script src="src/specialDancer.js"></script>
+  </head>
+  <body>
+    <div class="topbar">
+
+      <!--<a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SpecialDancer">add a special Dancer</a>-->
+      <a href="#" class="chooseYourDancer">Choose Your Dancer</a>
+      <a href="#" class="addAllDancers">HR23 Dance Party</a>
+      <a href="#" class="randomizePositions">Go Crayzayyyyy</a>
+      <a href="#" class="lineUpOnYAxis">Line Up</a>
+      <a href="#" class="danceOff">Dance Off</a>
+      <a href="#" class="switchPositions">Switch Positions</a>
+      <!--<a href="#" class="turtleParade">Turtle Parade</a>-->
+      <a href="#" class="fredify">Fredify</a>
+    </div>
+
+    <div class="dancerMenu">
+      <div class='dancerMenuContainer'>
+        <a href='#' class='closeMenu'>X</a>
+      </div>
+    </div>
+
+    <audio loop class="music_beatIt">
+      <source src="audio/mj_beat_it.mp3" type="audio/mpeg">
+    </audio>
+    <audio loop class="music_bad">
+      <source src="audio/mj_bad.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="src/init.js"></script>
+  </body>
+</html>
