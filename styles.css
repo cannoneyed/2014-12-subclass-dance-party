@@ -9,19 +9,33 @@ body{
   overflow: hidden;
 }
 
-.title, .addDancerButton{
+/*.title, .addDancerButton{
   padding:5px 12px;
   float:right;
 }
+*/
 .topbar{
   height:32px;
-  background-color: #555;
   color: blue;
   font-family: helvetica;
 }
 
 .topbar a{
-  color:red;
+  text-decoration: none;
+  position: relative;
+  top: 10px;
+  padding: 5px 12px;
+  color:#FF6666;
+  border: black 2px solid;
+  border-radius: 30px;
+  background-color: grey;
+  transition: 400ms;
+}
+
+.topbar a:hover{
+  background-color: white;
+  opacity: .8;
+  transition: 400ms;
 }
 
 .title{
@@ -81,7 +95,7 @@ body{
   position: relative;
   margin: auto auto;
   margin-top: 180px;
-  z-index: 5;
+  z-index: 10000000;
   overflow: auto;
   transition: 500ms;
 }
@@ -95,27 +109,66 @@ body{
 .dancerProfile{
   background-image: url("img/heads/smiley.png");
   width: 80px;
-  height: 110px;
+  height: 120px;
   margin: 10px;
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: inline-block;
+  border: 5px solid;
+  transition: 200ms;
+}
+
+.dancerProfile:hover{
+  background-color: white;
+  opacity: .8;
+  transition: 700ms;
 }
 
 .dancerName{
   position:relative;
-  top: 100px;
+  top: 110px;
   text-align: center;
+  background-color: #FF6666;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #333;
 }
 
 .closeMenu{
   position: fixed;
   text-decoration: none;
   color: white;
+  background-color: black;
+  border-radius: 30px;
+  border: black solid;
+  z-index:5;
+  opacity: .5;
+  transition: 300ms;
+}
+
+.closeMenu:hover{
+  opacity: 1;
+  transition: 300ms;
+}
+
+.dancerMenuContainer{
+  position: absolute;
+  transition: 1500ms;
+
 }
 
 .dancerContainer{
   position: absolute;
   transition: 1500ms;
+}
+
+div:hover.dancerContainer{
+  border-radius: 50px;
+  border: 2px solid;
+}
+
+.test{
+  top:0;
+  background-color: red !important;
 }

@@ -17,9 +17,12 @@ Dancer.prototype.step = function(){
 };
 
 Dancer.prototype.setPosition = function(top, left){
+  this.top = top;
+  this.left = left;
   var styleSettings = {
-    top: top,
-    left: left
+    'top': top,
+    'left': left,
+    'z-index': Math.floor(top)
   };
   this.$node.css(styleSettings);
 };
