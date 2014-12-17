@@ -202,9 +202,18 @@ div:hover.dancerContainer{
   left: 15px;
 }
 .dancerContainer.fat{
-  transform: scaleX(2);
+  transform: scaleX(5);
   left: 15px;
 }
+.dancerContainer.giant{
+  transform: scale(10);
+  left: 15px;
+}
+.dancerContainer.rocket{
+  transform: translateY(-1000px);
+  left: 15px;
+}
+
 
 .head.spin{
   transform: rotate(-720deg);
