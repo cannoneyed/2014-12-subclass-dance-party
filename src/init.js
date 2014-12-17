@@ -145,6 +145,18 @@ $(document).ready(function(){
     $('.dancerMenu').toggleClass('hidden');
   })
 
+  $('.addAllDancers').on('click', function(){
+    for(var key in heads){
+      var dancer = new SpecialDancer(
+      midPoint * Math.random() + midPoint,
+      $("body").width() * Math.random(),
+      500
+      );
+      $('body').append(dancer.$node);
+      dancer.$node.find('.head').css('background-image', 'url("' + heads[key] + '")');
+    }
+  });
+
   $('.closeMenu').on('click', function(){
     $('.dancerMenu').addClass('hidden');
   })
@@ -248,7 +260,7 @@ var heads = {
   Wes: "img/heads/wes.png",
   Yondy: "img/heads/yondy.png",
   Zach: "img/heads/zach.png",
- //Fred: "img/heads/fred.png"
+ // Fred: "img/heads/fred.png"
 };
 
 
