@@ -18,6 +18,7 @@ body{
   height:32px;
   color: blue;
   font-family: helvetica;
+  text-align: center;
 }
 
 .topbar a{
@@ -30,6 +31,8 @@ body{
   border-radius: 30px;
   background-color: grey;
   transition: 400ms;
+  left: auto;
+  right: auto;
 }
 
 .topbar a:hover{
@@ -111,6 +114,7 @@ body{
   width: 80px;
   height: 120px;
   margin: 10px;
+  margin-left: 20px;
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -155,12 +159,12 @@ body{
 .dancerMenuContainer{
   position: absolute;
   transition: 1500ms;
-
 }
 
 .dancerContainer{
   position: absolute;
-  transition: 1500ms;
+  transition-property: top, left, transform;
+  transition-duration: 1500ms, 1500ms, 1500ms;
 }
 
 div:hover.dancerContainer{
@@ -168,7 +172,44 @@ div:hover.dancerContainer{
   border: 2px solid;
 }
 
-.test{
-  top:0;
-  background-color: red !important;
+.dancerContainer.backFlip{
+  transform: rotateX(360deg);
+  left: 15px;
+}
+
+.dancerContainer.doubleBackFlip{
+  transform: rotateX(720deg);
+  left: 15px;
+}
+
+.dancerContainer.spinMove{
+  transform: rotateY(-1080deg);
+  left: 15px;
+}
+
+.dancerContainer.tornado{
+  transform: rotateY(-1080deg) rotateX(720deg);
+  left: 15px;
+}
+
+.dancerContainer.tumble{
+  transform: rotate(-360deg);
+  left: 15px;
+}
+
+.dancerContainer.doubleTumble{
+  transform: rotate(-360deg);
+  left: 15px;
+}
+.dancerContainer.fat{
+  transform: scaleX(2);
+  left: 15px;
+}
+
+.head.spin{
+  transform: rotate(-720deg);
+}
+
+.head.fred{
+  background-image: url('img/heads/fred.png') !important;
 }

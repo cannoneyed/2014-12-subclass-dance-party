@@ -66,6 +66,8 @@ $(document).ready(function(){
     $('body').append(dancer.$node);
     dancer.$node.find('.head').css('background-image', 'url("' + heads[name] + '")');
 
+    var danceMoves = ['none', 'backFlip', 'fat', 'doubleBackFlip', 'spinMove', 'tornado', 'tumble', 'doubleTumble'];
+
     dancer.$node.on('click', function() {
       if (danceOff) {
         var homeX = dancer.left;
@@ -75,17 +77,68 @@ $(document).ready(function(){
         var bottomX = $('body').width() * .45;;
         var bottomY = $('body').height() * .8;;
         dancer.setPosition(topY, topX);
+
         setTimeout(function(){
-          dancer.$node.css('transition', '15000ms');
+          dancer.$node.css('transition-duration', '15000ms, 15000ms, 1500ms');
           dancer.setPosition(bottomY, bottomX)
         }, 3000);
         setTimeout(function(){
-          dancer.$node.css('transition', '1500ms');
+          dancer.$node.css('transition-duration', '1500ms, 1500ms, 1500ms');
           dancer.setPosition(homeY, homeX)
         }, 15000);
+
+        var randomClass = danceMoves[Math.floor(Math.random() * danceMoves.length)];
+        var secondRandomClass = danceMoves[Math.floor(Math.random() * danceMoves.length)];
+
+        setTimeout(function(){
+          dancer.$node.addClass(randomClass);
+          dancer.$node.css('transition-duration', '1500ms, 1500ms, 1500ms');
+        }, 6000);
+        setTimeout(function(){
+          dancer.$node.removeClass(randomClass);
+          dancer.$node.css('transition-duration', '1500ms, 1500ms, 1000ms');
+        }, 8000);
+
+        setTimeout(function(){
+          dancer.$node.addClass(secondRandomClass);
+          dancer.$node.css('transition-duration', '1500ms, 1500ms, 1500ms');
+        }, 4000);
+        setTimeout(function(){
+          dancer.$node.removeClass(secondRandomClass);
+          dancer.$node.css('transition-duration', '1500ms, 1500ms, 1000ms');
+        }, 6000);
       }
     });
 
+  });
+
+  var whichSong = Math.floor(Math.random() * 2);
+  if (whichSong === 0) {
+    $('.music_bad').trigger("play");
+  } else {
+    $('.music_beatIt').trigger("play");
+  }
+
+  $('.fredify').on('click', function(){
+    for(var i = 0; i < window.dancers.length; i++){
+      console.log(window.dancers[i].$node.find('.head'))
+      window.dancers[i].$node.find('.head').addClass('spin');
+      window.dancers[i].$node.find('.head').toggleClass('fred');
+
+      setTimeout(function(index) {
+        return function() {
+          window.dancers[index].$node.find('.head').css('transition', '500ms');
+          window.dancers[index].$node.find('.head').removeClass('spin');
+          setTimeout(function(){
+            window.dancers[index].$node.find('.head').css('transition', '1000ms');
+          },1000);
+        }
+      }(i), 5000)
+    }
+  });
+
+  $('.head').on('click', function(){
+    $(this).toggleClass('backFlip');
   });
 
   $('.chooseYourDancer').on('click', function(){
@@ -166,36 +219,36 @@ $(document).ready(function(){
 });
 
 var heads = {
-  pasoidjasoijdsoopty: "img/heads/smiley.png",
-  red: "img/heads/smiley_red.png",
-  blue: "img/heads/smiley_blue.png",
-    poo: "img/heads/smiley.png",
-  re: "img/heads/smiley_red.png",
-  bue: "img/heads/smiley_blue.png",
-    oopty: "img/heads/smiley.png",
-  rd: "img/heads/smiley_red.png",
-  ble: "img/heads/smiley_blue.png",
-    ppty: "img/heads/smiley.png",
-  reasd: "img/heads/smiley_red.png",
-  bluesadas: "img/heads/smiley_blue.png",
-    poopasdty: "img/heads/smiley.png",
-  reasdasd: "img/heads/smiley_red.png",
-  bluasde: "img/heads/smiley_blue.png",
-    poopasdasty: "img/heads/smiley.png",
-  redhndfghdrg: "img/heads/smiley_red.png",
-  bltrnyrdtue: "img/heads/smiley_blue.png",
-    pooynrtstypty: "img/heads/smiley.png",
-  renrtyrdd: "img/heads/smiley_red.png",
-  blntydrtyue: "img/heads/smiley_blue.png",
-    pntrydrtyoopty: "img/heads/smiley.png",
-  retrnytryd: "img/heads/smiley_red.png",
-  bltnyrtdyue: "img/heads/smiley_blue.png",
-    pontrdyopty: "img/heads/smiley.png",
-  reynrntyrdd: "img/heads/smiley_red.png",
-  blrtdnyrue: "img/heads/smiley_blue.png",
-    pootndypty: "img/heads/smiley.png",
-  rtryned: "img/heads/smiley_red.png",
-  btnydrlue: "img/heads/smiley_blue.png",
+  Alan: "img/heads/alan.png",
+  Andy: "img/heads/andy.png",
+  Arun: "img/heads/arun.png",
+  Benoy: "img/heads/benoy.png",
+  Bren: "img/heads/bren.png",
+  Christian: "img/heads/christian.png",
+  David: "img/heads/david.png",
+  'Eric B': "img/heads/eric_b.png",
+  Eric: "img/heads/eric_s.png",
+  Henry: "img/heads/henry.png",
+  Hou: "img/heads/hou.png",
+  Kiran: "img/heads/kiran.png",
+  Luke: "img/heads/luke.png",
+  Matt: "img/heads/matt.png",
+  'Mike D': "img/heads/mike_d.png",
+  'Mike M': "img/heads/mike_m.png",
+  Neil: "img/heads/neil.png",
+  Omar: "img/heads/omar.png",
+  Preston: "img/heads/preston.png",
+  Rob: "img/heads/rob.png",
+  'Ryan L': "img/heads/ryan_l.png",
+  'Ryan M': "img/heads/ryan_m.png",
+  Sasha: "img/heads/sasha.png",
+  Shin: "img/heads/shin.png",
+  Steven: "img/heads/steven.png",
+  Todd: "img/heads/todd.png",
+  Wes: "img/heads/wes.png",
+  Yondy: "img/heads/yondy.png",
+  Zach: "img/heads/zach.png",
+ //Fred: "img/heads/fred.png"
 };
 
 
